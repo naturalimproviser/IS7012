@@ -1,0 +1,48 @@
+﻿
+
+@page
+@model DiceRoller.Pages.Index1Model
+@{ int RandomNumber = new Random().Next(1, 7); //GENERATES NUMBER BETWEEN 1 and 6
+    int WinningNumber = 1;
+    int Distance = RandomNumber - WinningNumber;
+    int FinalNumber;}
+
+
+<h4 class="display-4 text-center alert alert-primary">
+    The Dice Roller Game!
+</h4>
+
+<h4 class="display-4 text-center alert font-weight-bold">
+    Current number: @RandomNumber
+</h4>
+<hr />
+
+@if (RandomNumber == WinningNumber)
+{
+
+<h1 class="display-4 text-center alert alert-success">
+    YOU WIN
+</h1> }
+else
+{
+<h1 class="display-4 text-center alert alert-danger">
+    YOU LOSE
+</h1> if (Distance < 0)
+{
+    FinalNumber = WinningNumber - RandomNumber;
+<h3>
+    <div class="font-italic alert alert-primary p-3">
+        How “far off” is the random number from the winning number: <span class="font-weight-bold">@FinalNumber</span>
+    </div>
+</h3> }
+else
+{
+FinalNumber = RandomNumber - WinningNumber;
+<h3 class="display-4 text-center mt-5">
+    <div class="font-italic alert alert-primary p-3">
+        How “far off” is the random number from the winning number: <span class="font-weight-bold">@FinalNumber</span>
+    </div>
+</h3>}
+}
+
+
